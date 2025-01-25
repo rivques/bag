@@ -22,3 +22,7 @@ Once you have these, you'll need to `git clone` this repo, and then:
 7. Clone the rivques/bag-manifest repo (hopefully merged into mainline soon). Make a .env in the workflow directory and set APP_ID and APP_KEY from the bot you just made, and set BASE_URL to port 3000 of wherever your bag instance is running (probably `http://localhost:3000`).
 8. `cd` into the workflow directory and run `npm i`, then `node update.js`. This will pull all the items into your DB.
 9. You should now have a local copy of Bag, ready to play with!
+
+## To deploy API to Coolify:
+1. On a Linux system, get a GitHub PAT with `write:packages` and run `echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin`
+2. Run `./coolify_update.sh` to build and push the image to GHCR. Coolify should auto-deploy from here.
