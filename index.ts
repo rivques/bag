@@ -10,7 +10,7 @@ import './lib/slack/routes/use'
 import slack from './lib/slack/slack'
 import routes from './router'
 import { fastifyConnectPlugin } from '@connectrpc/connect-fastify'
-import { fastify } from 'fastify'
+import { fastify } from 'fastify';
 
 ;(async () => {
   // Shutdown signal - shutdown Prisma client
@@ -39,7 +39,8 @@ import { fastify } from 'fastify'
 
   if (config.NODE_ENV === 'development' || !config.SLACK_BOT) {
     const server = fastify({
-      http2: true
+      http2: true,
+      logger: true
     })
     await server.register(fastifyConnectPlugin, { routes })
     server.get('/', (_, reply) => {

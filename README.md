@@ -24,5 +24,5 @@ Once you have these, you'll need to `git clone` this repo, and then:
 9. You should now have a local copy of Bag, ready to play with!
 
 ## To deploy API to Coolify:
-1. On a Linux system, get a GitHub PAT with `write:packages` and run `echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin`
-2. Run `./coolify_update.sh` to build and push the image to GHCR. Coolify should auto-deploy from here.
+1. On a Linux system, `docker login`
+2. Run `./coolify_update.sh` to build and push the image to Docker Hub. Coolify should auto-deploy from here.
